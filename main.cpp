@@ -95,7 +95,9 @@ void menuPengguna() {
 // Fungsi untuk menampilkan harga pengiriman
 void tampilkanHargaPengiriman(PengirimanPaket &paket) {
     // Menampilkan harga pengiriman pulau Jawa
+    cout << "==================================" << endl;
     cout << "===== HARGA PENGIRIMAN PAKET =====" << endl;
+    cout << "==================================" << endl;
     cout << "Jenis pengiriman :" << endl;
     cout << "Harga pengiriman pulau Jawa : " << endl;
     for (const auto &harga : paket.hargaPengirimanJawa) {
@@ -106,9 +108,6 @@ void tampilkanHargaPengiriman(PengirimanPaket &paket) {
     for (const auto &harga : paket.hargaPengirimanLuarJawa) {
         cout << "- " << harga << endl;
     }
-    cout << "================================" << endl;
-    cout << "0. Kembali" << endl;
-    cout << "================================" << endl;
 }
 
 // Fungsi untuk memasukkan data diri
@@ -145,12 +144,66 @@ void kirimBarang(PengirimanPaket &paket, DataDiri &pengirim, DataDiri &penerima,
     // Menampilkan pilihan pengiriman
     if (lokasi == 1) {
         tampilkanHargaPengiriman(paket);
-        // Memilih pengiriman
-        // (Proses pilihan pengiriman dan metode pembayaran akan diimplementasikan di sini)
+        int pilihan;
+        cout << "Pilih jenis pengiriman (1-" << paket.hargaPengirimanJawa.size() << "): ";
+        cin >> pilihan;
+        
+        if (pilihan >= 1 && pilihan <= paket.hargaPengirimanJawa.size()) {
+            double hargaPerKg = 0.0;
+            switch (pilihan) {
+                case 1:
+                    hargaPerKg = 5000.0; // Misalnya, atur harga per kilogram untuk pilihan pertama
+                    break;
+                case 2:
+                    hargaPerKg = 6000.0; // Atur harga per kilogram untuk pilihan kedua
+                    break;
+                case 3:
+                    hargaPerKg = 7000.0; // Atur harga per kilogram untuk pilihan ketiga
+                    break;
+                case 4:
+                    hargaPerKg = 5000.0; // Atur harga per kilogram untuk pilihan keempat
+                    break;
+                default:
+                    cout << "Pilihan tidak valid." << endl;
+                    return;
+            }
+            
+            double totalHarga = detailBarang.berat * hargaPerKg;
+            cout << "Total harga: Rp" << totalHarga << endl;
+            
+            // Lanjutkan dengan proses pengiriman
+        } else {
+            cout << "Pilihan tidak valid." << endl;
+        }
     } else if (lokasi == 2) {
         tampilkanHargaPengiriman(paket);
-        // Memilih pengiriman
-        // (Proses pilihan pengiriman dan metode pembayaran akan diimplementasikan di sini)
+        int pilihan;
+        cout << "Pilih jenis pengiriman (1-" << paket.hargaPengirimanJawa.size() << "): ";
+        cin >> pilihan;
+        
+        if (pilihan >= 2 && pilihan <= paket.hargaPengirimanJawa.size()) {
+            double hargaPerKg = 0.0;
+            switch (pilihan) {
+                case 1:
+                    hargaPerKg = 5000.0; // Misalnya, atur harga per kilogram untuk pilihan pertama
+                    break;
+                case 2:
+                    hargaPerKg = 6000.0; // Atur harga per kilogram untuk pilihan kedua
+                    break;
+                case 3:
+                    hargaPerKg = 7000.0; // Atur harga per kilogram untuk pilihan ketiga
+                    break;
+                case 4:
+                    hargaPerKg = 5000.0; // Atur harga per kilogram untuk pilihan keempat
+                    break;
+                default:
+                    cout << "Pilihan tidak valid." << endl;
+                    return;
+            }
+            
+            double totalHarga = detailBarang.berat * hargaPerKg;
+            cout << "Total harga: Rp" << totalHarga << endl;
+        }
     }
 }
 
@@ -258,8 +311,6 @@ int main() {
                     case 4:
                         cout << "Terima kasih telah menggunakan layanan kami." << endl;
                         return 0;
-                    case 0:
-                        break;
                     default:
                             cout << "Pilihan tidak valid. Silakan coba lagi." << endl;
                             break;
