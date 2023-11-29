@@ -172,6 +172,57 @@ void kirimBarang(PengirimanPaket &paket, DataDiri &pengirim, DataDiri &penerima,
             cout << "Total harga: Rp" << totalHarga << endl;
             
             // Lanjutkan dengan proses pengiriman
+            cout << "================================" << endl;
+            int metodePembayaran;
+            cout << "Pilih Pembayaran :" << endl;
+            cout << "1. Cash" << endl;
+            cout << "2. Cashless" << endl;
+            cout << "================================" << endl;
+            cout << "Pilih : ";
+            cin >> metodePembayaran;
+
+            if (metodePembayaran == 1) {
+                char sudahBayar;
+                cout << "Silahkan bayar langsung. Apakah anda sudah membayar? (Y/N): ";
+                cin >> sudahBayar;
+                if (sudahBayar == 'Y' || sudahBayar == 'y') {
+                    // Generate nomor resi secara acak
+                    int randomResi = rand() % 100000 + 1; // Angka acak untuk nomor resi
+                    cout << "================================" << endl;
+                    cout << "Resi anda ID" << randomResi << endl;
+                    cout << "Barang akan sampai dalam 1-3 hari." << endl;
+                } else if (sudahBayar == 'N' || sudahBayar == 'n') {
+                    cout << "Silahkan bayar langsung kembali." << endl;
+                    cout << "Apakah anda sudah membayar? (Y/N): ";
+                    cin >> sudahBayar;
+                    // ... (logika lanjutan jika belum membayar)
+                } else {
+                    cout << "Input tidak valid." << endl;
+                }
+            } else if (metodePembayaran == 2) {
+                cout << "Rekening : BCA" << endl;
+                cout << "Nomor Rekening : 88888888" << endl;
+                cout << "Atas Nama : GHINA SALSABILLA" << endl;
+
+                char sudahBayar;
+                cout << "Apakah anda sudah membayar? (Y/N): ";
+                cin >> sudahBayar;
+
+                if (sudahBayar == 'Y' || sudahBayar == 'y') {
+                    // Generate nomor resi secara acak
+                    int randomResi = rand() % 100000 + 1; // Angka acak untuk nomor resi
+                    cout << "Resi anda ID" << randomResi << endl;
+                    cout << "Barang akan sampai dalam 1-3 hari." << endl;
+                } else if (sudahBayar == 'N' || sudahBayar == 'n') {
+                    cout << "Apakah anda sudah membayar? (Y/N): ";
+                    cin >> sudahBayar;
+                    // ... (logika lanjutan jika belum membayar)
+                } else {
+                    cout << "Input tidak valid." << endl;
+                }
+            } else {
+                cout << "Pilihan tidak valid." << endl;
+            }
         } else {
             cout << "Pilihan tidak valid." << endl;
         }
