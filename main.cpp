@@ -195,7 +195,13 @@ void kirimBarang(PengirimanPaket &paket, DataDiri &pengirim, DataDiri &penerima,
                     cout << "Silahkan bayar langsung kembali." << endl;
                     cout << "Apakah anda sudah membayar? (Y/N): ";
                     cin >> sudahBayar;
-                    // ... (logika lanjutan jika belum membayar)
+                    if (sudahBayar == 'Y' || sudahBayar == 'y') {
+                        // Generate nomor resi secara acak
+                        int randomResi = rand() % 100000 + 1; // Angka acak untuk nomor resi
+                        cout << "================================" << endl;
+                        cout << "Resi anda ID" << randomResi << endl;
+                        cout << "Barang akan sampai dalam 1-3 hari." << endl;
+                    }
                 } else {
                     cout << "Input tidak valid." << endl;
                 }
@@ -211,12 +217,19 @@ void kirimBarang(PengirimanPaket &paket, DataDiri &pengirim, DataDiri &penerima,
                 if (sudahBayar == 'Y' || sudahBayar == 'y') {
                     // Generate nomor resi secara acak
                     int randomResi = rand() % 100000 + 1; // Angka acak untuk nomor resi
+                    cout << "================================" << endl;
                     cout << "Resi anda ID" << randomResi << endl;
                     cout << "Barang akan sampai dalam 1-3 hari." << endl;
                 } else if (sudahBayar == 'N' || sudahBayar == 'n') {
                     cout << "Apakah anda sudah membayar? (Y/N): ";
                     cin >> sudahBayar;
-                    // ... (logika lanjutan jika belum membayar)
+                    if (sudahBayar == 'Y' || sudahBayar == 'y') {
+                        // Generate nomor resi secara acak
+                        int randomResi = rand() % 100000 + 1; // Angka acak untuk nomor resi
+                        cout << "================================" << endl;
+                        cout << "Resi anda ID" << randomResi << endl;
+                        cout << "Barang akan sampai dalam 1-3 hari." << endl;
+                    }
                 } else {
                     cout << "Input tidak valid." << endl;
                 }
